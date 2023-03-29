@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exemplo de botão e input com resultados</title>
+</head>
+<body>
+	<label for="numero">Digite um número:</label>
+	<input type="number" id="numero">
+
+	<button onclick="exibirResultados()">Clique aqui</button>
+
+	<div id="resultados"></div>
+
+	<script>
+		function exibirResultados() {
+			const numero = Number(document.getElementById("numero").value);
+			const valorAbsoluto = Math.abs(numero);
+			const inteiroProximo = Math.round(numero);
+			const raizQuadrada = Math.sqrt(numero);
+			const raizCubica = Math.cbrt(numero);
+			const quadrado = numero ** 2;
+
+			const resultadosDiv = document.getElementById("resultados");
+			resultadosDiv.innerHTML = `
+				<p>Valor absoluto: ${valorAbsoluto}</p>
+				<p>Inteiro mais próximo: ${inteiroProximo}</p>
+				<p>Raiz quadrada: ${raizQuadrada}</p>
+				<p>Raiz cúbica: ${raizCubica}</p>
+				<p>Ao quadrado: ${quadrado}</p>
+			`;
+		}
+	</script>
+</body>
+</html>

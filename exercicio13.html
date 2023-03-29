@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exemplo de botão e input com alerta</title>
+</head>
+<body>
+	<label for="numero">Digite um número:</label>
+	<input type="number" id="numero">
+
+	<button onclick="exibirResultado()">Clique aqui</button>
+
+	<script>
+		function exibirResultado() {
+			const numero = document.getElementById("numero").value;
+			const dobro = numero * 2;
+			const metade = numero / 2;
+			alert(`Dobro: ${dobro}\nMetade: ${metade}`);
+		}
+	</script>
+</body>
+</html>

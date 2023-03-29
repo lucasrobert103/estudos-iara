@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Exercícios Luquinha</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Lista de Exercícios Luquinha</h1>
+  </header>
+
+  <main>
+    <ul>
+      <li>
+        <h2>Exercício 1</h2>
+        <p>No node/js, usando o terminal, criar um programa que exibe no terminal "Olá
+            Mundo!".</p>
+        <pre>
+          <code>
+            console.log(&quot;Olá, mundo!&quot;);
+          </code>
+        </pre>
+      </li>
+
+      <li>
+        <h2>>Exercício 2</h2>
+        <p>No navegador, usando apenas html e js, criar um programa que exibe no console 
+            "Olá Mundo!".</p>
+        <pre>
+          <code>
+            &lt;script&gt;
+                console.log(&quot;Olá Mundo!&quot;);
+            &lt;/script&gt;
+          </code>
+        </pre>
+      </li>
+
+      <li>
+        <h2>Exercício 3</h2>
+        <p>No node/js, usando o terminal, criar um programa que, dado um número 
+            qualquer, exibe no terminal o dobro e a metade desse número.</p>
+        <pre>
+          <code>
+            const numero = process.argv[2];
+            const dobro = numero * 2;
+            const metade = numero / 2;
+            console.log(`O dobro de ${numero} é ${dobro} e a metade é ${metade}`);            
+          </code>
+        </pre>
+      </li>
+
+      <li>
+        <h2>>Exercício 4</h2>
+        <p>No node/js, usando o terminal, criar um programa que, dado 3 números, exibe a média no terminal.</p>
+        <pre>
+          <code>
+            const numero1 = process.argv[2];
+            const numero2 = process.argv[3];
+            const numero3 = process.argv[4];
+            
+            const media = (parseInt(numero1) + parseInt(numero2) + parseInt(numero3)) / 3;
+            
+            console.log(`A média dos números é: ${media}`);
+          </code>
+        </pre>
+      </li>
+
+      <li>
+        <h2>Exercício 5</h2>
+        <p>No node/js, usando o terminal, criar um programa que, dado um número, exibe 
+            no terminal se é par ou ímpar.</p>
+        <pre>
+          <code>
+            // biblioteca readline do Node.js para interagir com a entrada e saída de dados do terminal
+            const readline = require('readline');
+            
+            // Cria uma interface readline para ler dados
+            const rl = readline.createInterface({
+              input: process.stdin, // Define a entrada de dados como o processo do terminal
+              output: process.stdout // Define a saída de dados como o processo do terminal
+            });
+            
+            // Pergunta ao usuário para digitar um número no terminal e chama uma função de retorno de chamada quando o usuário pressionar Enter
+            rl.question('Digite um número: ', (numero) => {
+              // Verifica se o número é par ou ímpar
+              if(numero % 2 === 0) {
+                console.log(`${numero} é par`); // Exibe uma mensagem informando que o número é par
+              } else {
+                console.log(`${numero} é ímpar`); // Exibe uma mensagem informando que o número é ímpar
+              }
+              
+              // Fecha a interface readline
+              rl.close();
+            });
+            
+          </code>
+        </pre>
+      </li>
+      <li>
+        <h2>Exercício 6</h2>
+        <p>No node/js, usando o terminal, criar um programa que, dado uma data, exibe no 
+            terminal qual estação do ano no Brasil da data.</p>
+        <pre>
+          <code>
+            // as estações do ano são geralmente definidas da seguinte forma:
+
+            // Verão: de 21 de dezembro a 20 de março
+            // Outono: de 21 de março a 20 de junho
+            // Inverno: de 21 de junho a 20 de setembro
+            // Primavera: de 21 de setembro a 20 de dezembro
+            
+            const readline = require('readline');
+            
+            function getSeason(date) {
+              const month = date.getMonth() + 1;
+              if (month >= 1 && month <= 3) {
+                return 'Verão';
+              } else if (month >= 4 && month <= 6) {
+                return 'Outono';
+              } else if (month >= 7 && month <= 9) {
+                return 'Inverno';
+              } else {
+                return 'Primavera';
+              }
+            }
+            
+            const rl = readline.createInterface({
+              input: process.stdin,
+              output: process.stdout
+            });
+            
+            rl.question('Digite uma data no formato DD/MM/AAAA: ', (input) => {
+              const [day, month, year] = input.split('/');
+              const date = new Date(year, month - 1, day);
+              const season = getSeason(date);
+              console.log(`A estação do ano no Brasil em ${input} é: ${season}`);
+              rl.close();
+            });
+          </code>
+        </pre>
+      </li>
+      <li>
+        <h2>Exercício 7</h2>
+        <p>No node/js, usando o terminal, criar um programa que, dado 2 números como 
+            parâmetros de uma função, retorna o maior.</p>
+        <pre>
+          <code>
+            const readline = require('readline');
+
+            const rl = readline.createInterface({
+              input: process.stdin,
+              output: process.stdout
+            });
+            
+            rl.question('Digite o primeiro número: ', (num1) => {
+              rl.question('Digite o segundo número: ', (num2) => {
+                const max = Math.max(parseFloat(num1), parseFloat(num2));
+                console.log(`O maior número entre ${num1} e ${num2} é: ${max}`);
+                rl.close();
+              });
+            });            
+          </code>
+        </pre>
+      </li>
+      <li>
+        <h2>Exercício 8</h2>
+        <p>No node/js, usando o terminal, criar um programa que, dado uma data para uma 
+            função, retorna quantos dias se passaram desde o ano novo.</p>
+        <pre>
+          <code>
+            // Pede ao usuário para digitar uma data no formato "DD/MM/AAAA"
+            const readline = require('readline').createInterface({
+              input: process.stdin,
+              output: process.stdout
+            });
+            
+            readline.question('Digite uma data no formato "DD/MM/AAAA": ', (date) => {
+              // Converte a data para um objeto Date
+              const parts = date.split('/');
+              const d = new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
+            
+              // Calcula o número de dias desde o início do ano
+              const startOfYear = new Date(d.getFullYear(), 0, 1);
+              const diff = (d - startOfYear) / (1000 * 60 * 60 * 24);
+            
+              console.log(`Dias desde o início do ano: ${diff}`);
+            
+              readline.close();
+            });
+          </code>
+        </pre>
+      </li>
+      <li>
+        <h2>Exercício 9</h2>
+        <p>No node/js, usando o terminal, criar um programa que, dado uma data de 
+            nascimento para uma função, retorna quantos anos tem o indivíduo.</p>
+        <pre>
+          <code>
+            // Pede ao usuário para digitar uma data de nascimento no formato "DD/MM/AAAA"
+            const readline = require('readline').createInterface({
+              input: process.stdin,
+              output: process.stdout
+            });
+            
+            readline.question('Digite uma data de nascimento no formato "DD/MM/AAAA": ', (birthdate) => {
+              // Converte a data de nascimento para um objeto Date
+              const parts = birthdate.split('/');
+              const dob = new Date(`${parts[2]}-${parts[1]}-${parts[0]}`);
+            
+              // Calcula a idade em anos
+              const now = new Date();
+              let age = now.getFullYear() - dob.getFullYear();
+              if (now.getMonth() < dob.getMonth() || (now.getMonth() === dob.getMonth() && now.getDate() < dob.getDate())) {
+                age--;
+              }
+            
+              console.log(`Idade: ${age} anos`);
+            
+              readline.close();
+            });
+            
+          </code>
+        </pre>
+      </li>
+      <li>
+        <h2>Exercício 10</h2>
+        <p>No node/js, usando o terminal, criar um programa que, dado um valor para uma 
+            função como parâmetro, retorna quantos números inteiros aleatórios foram</p>
+        <pre>
+          <code>
+            // Pede ao usuário para digitar um valor como parâmetro
+            const readline = require('readline').createInterface({
+              input: process.stdin,
+              output: process.stdout
+            });
+            
+            readline.question('Digite um valor: ', (value) => {
+              // Converte o valor para um número inteiro
+              value = parseInt(value);
+            
+              // Gera números inteiros aleatórios e conta quantos foram gerados
+              let count = 0;
+              for (let i = 0; i < value; i++) {
+                const randomNumber = Math.floor(Math.random() * 100);
+                console.log(randomNumber);
+                count++;
+              }
+            
+              console.log(`Foram gerados ${count} números inteiros aleatórios`);
+            
+              readline.close();
+            });            
+          </code>
+        </pre>
+      </li>
+      <li>
+        <h2>Exercício 11</h2>
+        <p>Fazer um HTML com um botão e um input. Ao clicar no botão exibir um alerta 
+            com o conteúdo do input</p>
+        <pre>
+          <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+                &lt;title&gt;Exemplo de botão com alerta&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;button onclick="exibirAlerta()"&gt;Clique aqui&lt;/button&gt;
+            
+                &lt;script&gt;
+                    function exibirAlerta() {
+                        alert("esse foi facil demais🤣");
+                    }
+                &lt;/script&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+            
+          </code>
+        </pre>
+      </li>
+      <li>
+        <h2>Exercício 12</h2>
+        <p>Fazer um HTML com um botão com uma função que exibe um alerta.</p>
+        <pre>
+          <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+                &lt;title&gt;bora bill&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;input type="text" id="texto"&gt;
+                &lt;button onclick="alert(document.getElementById('texto').value)"&gt;Clique aqui&lt;/button&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+          </code>
+        </pre>
+      </li>
+      <li>
+        <h2>Exercício 13</h2>
+        <p>Fazer um HTML com um botão e um input. Dado um número qualquer no input, 
+            ao clicar no botão exibir num alerta o dobro e a metade desse número.</p>
+        <pre>
+          <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+                &lt;title&gt;Exemplo de botão e input com alerta&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;label for="numero"&gt;Digite um número:&lt;/label&gt;
+                &lt;input type="number" id="numero"&gt;
+            
+                &lt;button onclick="exibirResultado()"&gt;Clique aqui&lt;/button&gt;
+            
+                &lt;script&gt;
+                    function exibirResultado() {
+                        const numero = document.getElementById("numero").value;
+                        const dobro = numero * 2;
+                        const metade = numero / 2;
+                        alert(`Dobro: ${dobro}\nMetade: ${metade}`);
+                    }
+                &lt;/script&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+            
+          </code>
+        </pre>
+      </li>
+      <li>
+        <h2>Exercício 14</h2>
+        <p>Fazer um HTML com um botão e um input. Dado um número qualquer no input, 
+            ao clicar no botão exibir na tela: O seu valor absoluto, valor inteiro mais próximo, 
+            raiz quadrada é do número, raiz cúbica do número, número ao quadrado</p>
+        <pre>
+          <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+                &lt;title&gt;Exemplo de botão e input com resultados&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;label for="numero"&gt;Digite um número:&lt;/label&gt;
+                &lt;input type="number" id="numero"&gt;
+            
+                &lt;button onclick="exibirResultados()"&gt;Clique aqui&lt;/button&gt;
+            
+                &lt;div id="resultados"&gt;&lt;/div&gt;
+            
+                &lt;script&gt;
+                    function exibirResultados() {
+                        const numero = Number(document.getElementById("numero").value);
+                        const valorAbsoluto = Math.abs(numero);
+                        const inteiroProximo = Math.round(numero);
+                        const raizQuadrada = Math.sqrt(numero);
+                        const raizCubica = Math.cbrt(numero);
+                        const quadrado = numero ** 2;
+            
+                        const resultadosDiv = document.getElementById("resultados");
+                        resultadosDiv.innerHTML = `
+                            &lt;p&gt;Valor absoluto: ${valorAbsoluto}&lt;/p&gt;
+                            &lt;p&gt;Inteiro mais próximo: ${inteiroProximo}&lt;/p&gt;
+                            &lt;p&gt;Raiz quadrada: ${raizQuadrada}&lt;/p&gt;
+                            &lt;p&gt;Raiz cúbica: ${raizCubica}&lt;/p&gt;
+                            &lt;p&gt;Ao quadrado: ${quadrado}&lt;/p&gt;
+                        `;
+                    }
+                &lt;/script&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+            
+          </code>
+        </pre>
+      </li>
+      <li>
+        <h2>Exercício 15</h2>
+        <p>Fazer HTML com 2 botões. Um soma a quantidade de cliques e o outro zera o 
+            contador de cliques.</p>
+        <pre>
+          <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+                &lt;title&gt;Exemplo de contador de cliques&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;h1&gt;Contador de cliques&lt;/h1&gt;
+            
+                &lt;p&gt;Quantidade de cliques: &lt;span id="contador"&gt;0&lt;/span&gt;&lt;/p&gt;
+            
+                &lt;button onclick="adicionarClique()"&gt;Adicionar clique&lt;/button&gt;
+                &lt;button onclick="zerarContador()"&gt;Zerar contador&lt;/button&gt;
+            
+                &lt;script&gt;
+                    let contador = 0;
+            
+                    function adicionarClique() {
+                        contador++;
+                        document.getElementById("contador").textContent = contador;
+                    }
+            
+                    function zerarContador() {
+                        contador = 0;
+                        document.getElementById("contador").textContent = contador;
+                    }
+                &lt;/script&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+            
+          </code>
+        </pre>
+      </li>
+      <li>
+        <h2>Exercício 16</h2>
+        <p>Fazer HTML com 2 botões e 1 input. O primeiro botão adiciona itens numa lista 
+            de números, sendo o valor vindo do input. O segundo botão calcula...</p>
+        <pre>
+          <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+                &lt;title&gt;Lista de números e média&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;h1&gt;Lista de números&lt;/h1&gt;
+            
+                &lt;label for="numero"&gt;Número:&lt;/label&gt;
+                &lt;input type="number" id="numero"&gt;
+                &lt;button onclick="adicionarNumero()"&gt;Adicionar número&lt;/button&gt;
+            
+                &lt;ul id="listaNumeros"&gt;&lt;/ul&gt;
+            
+                &lt;button onclick="calcularMedia()"&gt;Calcular média&lt;/button&gt;
+            
+                &lt;p id="media"&gt;&lt;/p&gt;
+            
+                &lt;script&gt;
+                    let numeros = [];
+            
+                    function adicionarNumero() {
+                        let numero = document.getElementById("numero").value;
+                        numeros.push(numero);
+                        document.getElementById("listaNumeros").innerHTML = "";
+                        numeros.forEach(function(numero) {
+                            document.getElementById("listaNumeros").innerHTML += "&lt;li&gt;" + numero + "&lt;/li&gt;";
+                        });
+                        document.getElementById("numero").value = "";
+                    }
+            
+                    function calcularMedia() {
+                        let soma = 0;
+                        numeros.forEach(function(numero) {
+                            soma += parseInt(numero);
+                        });
+                        let media = soma / numeros.length;
+                        document.getElementById("media").textContent = "Média: " + media.toFixed(2);
+                    }
+                &lt;/script&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+            
+          </code>
+        </pre>
+      </li>
+    </ul>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Luquinha</p>
+  </footer>
+</body>
+</html>

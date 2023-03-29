@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exemplo de contador de cliques</title>
+</head>
+<body>
+	<h1>Contador de cliques</h1>
+
+	<p>Quantidade de cliques: <span id="contador">0</span></p>
+
+	<button onclick="adicionarClique()">Adicionar clique</button>
+	<button onclick="zerarContador()">Zerar contador</button>
+
+	<script>
+		let contador = 0;
+
+		function adicionarClique() {
+			contador++;
+			document.getElementById("contador").textContent = contador;
+		}
+
+		function zerarContador() {
+			contador = 0;
+			document.getElementById("contador").textContent = contador;
+		}
+	</script>
+</body>
+</html>
